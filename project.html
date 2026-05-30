@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Full Stack Deployment & Project Architecture</title>
+
+<style>
+
+/* ===== ADVANCED BACKGROUND ===== */
+
+body{
+margin:0;
+font-family:Poppins,sans-serif;
+background:#050505;
+color:white;
+overflow-x:hidden;
+position:relative;
+}
+
+/* Animated Neon Background */
+
+body::before{
+content:"";
+position:fixed;
+top:-150px;
+left:-150px;
+width:500px;
+height:500px;
+background:red;
+border-radius:50%;
+filter:blur(180px);
+opacity:.35;
+animation:redMove 10s infinite alternate;
+z-index:-1;
+}
+
+body::after{
+content:"";
+position:fixed;
+bottom:-150px;
+right:-150px;
+width:500px;
+height:500px;
+background:yellow;
+border-radius:50%;
+filter:blur(180px);
+opacity:.30;
+animation:yellowMove 10s infinite alternate;
+z-index:-1;
+}
+
+@keyframes redMove{
+from{transform:translate(0,0);}
+to{transform:translate(150px,100px);}
+}
+
+@keyframes yellowMove{
+from{transform:translate(0,0);}
+to{transform:translate(-150px,-100px);}
+}
+
+/* Floating Particles */
+
+.particle{
+position:fixed;
+width:6px;
+height:6px;
+background:white;
+border-radius:50%;
+opacity:.4;
+animation:float 8s linear infinite;
+}
+
+@keyframes float{
+0%{
+transform:translateY(100vh);
+}
+100%{
+transform:translateY(-100px);
+}
+}
+
+/* Navbar */
+
+nav{
+display:flex;
+justify-content:space-between;
+padding:20px 10%;
+backdrop-filter:blur(10px);
+position:sticky;
+top:0;
+}
+
+nav h2{
+color:yellow;
+}
+
+nav ul{
+display:flex;
+gap:20px;
+list-style:none;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+}
+
+/* Hero */
+
+.hero{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+text-align:center;
+padding:20px;
+}
+
+.hero h1{
+font-size:4rem;
+color:yellow;
+text-shadow:0 0 20px red;
+}
+
+.hero p{
+max-width:700px;
+margin-top:20px;
+font-size:1.1rem;
+}
+
+/* Card Section */
+
+.section{
+padding:80px 10%;
+}
+
+.section h2{
+text-align:center;
+margin-bottom:40px;
+color:yellow;
+}
+
+.card{
+
+background:
+rgba(255,255,255,.08);
+
+backdrop-filter:blur(12px);
+
+border-radius:20px;
+
+padding:25px;
+
+transform-style:preserve-3d;
+
+transition:.5s;
+
+box-shadow:
+0 15px 25px rgba(0,0,0,.5);
+}
+
+.card:hover{
+
+transform:
+rotateY(10deg)
+rotateX(5deg)
+translateY(-10px);
+
+box-shadow:
+0 0 20px red,
+0 0 40px yellow;
+
+}
+
+/* Deployment */
+
+.deploy-buttons{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:30px;
+}
+
+.deploy-buttons button{
+
+padding:18px 30px;
+
+border:none;
+border-radius:18px;
+
+font-size:18px;
+font-weight:bold;
+
+cursor:pointer;
+
+background:
+linear-gradient(
+145deg,
+#ff0000,
+#ff9900
+);
+
+color:white;
+
+transform-style:preserve-3d;
+
+box-shadow:
+0 10px 20px rgba(0,0,0,.6),
+0 0 20px red;
+
+transition:.4s;
+}
+
+.deploy-buttons button:hover{
+
+transform:
+translateY(-8px)
+rotateX(15deg)
+scale(1.08);
+
+box-shadow:
+0 20px 40px rgba(0,0,0,.8),
+0 0 25px red,
+0 0 40px yellow;
+
+}
+/* Contact */
+
+.contact{
+max-width:600px;
+margin:auto;
+}
+
+.contact input,
+.contact textarea{
+width:100%;
+padding:15px;
+margin-top:15px;
+border:none;
+border-radius:10px;
+}
+
+.contact button{
+margin-top:15px;
+padding:15px;
+width:100%;
+background:red;
+color:white;
+border:none;
+border-radius:10px;
+cursor:pointer;
+}
+
+/* Footer */
+
+footer{
+text-align:center;
+padding:20px;
+margin-top:50px;
+border-top:1px solid rgba(255,255,255,.2);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<nav>
+<h2>Full Stack Project</h2>
+
+<ul>
+<li><a href="#architecture">Architecture</a></li>
+<li><a href="#routing">Routing</a></li>
+<li><a href="#deploy">Deploy</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero">
+
+<h1>Full-Stack Deployment & Project Architecture</h1>
+
+<p>
+Build, optimize and deploy a professional web application
+with modular architecture and modern deployment workflow.
+</p>
+
+</section>
+
+<section class="section" id="architecture">
+
+<h2>Key Features</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Modular Frontend</h3>
+<p>
+Reusable components and scalable architecture.
+</p>
+</div>
+
+<div class="card">
+<h3>Client Side Routing</h3>
+<p>
+Smooth navigation without page reload.
+</p>
+</div>
+
+<div class="card">
+<h3>Asset Optimization</h3>
+<p>
+Images, CSS and JS optimized for performance.
+</p>
+</div>
+
+<div class="card">
+<h3>Deployment Ready</h3>
+<p>
+Deploy on Vercel, Netlify or Render.
+</p>
+</div>
+
+</div>
+
+</section>
+
+<section class="section deploy" id="deploy">
+
+<h2>Deployment Platforms</h2>
+
+<div class="deploy-buttons">
+
+<button onclick="alert('Deploy on Vercel')">
+Vercel
+</button>
+
+<button onclick="alert('Deploy on Netlify')">
+Netlify
+</button>
+
+<button onclick="alert('Deploy on Render')">
+Render
+</button>
+
+</div>
+
+</section>
+
+<section class="section contact" id="contact">
+
+<h2>Contact Me</h2>
+
+<input type="text" placeholder="Name">
+
+<input type="email" placeholder="Email">
+
+<textarea rows="5" placeholder="Message"></textarea>
+
+<button>Send Message</button>
+
+</section>
+
+<footer>
+© 2026 Full Stack Deployment Project
+</footer>
+
+<script>
+
+// Smooth animation on scroll
+
+const cards =
+document.querySelectorAll(".card");
+
+window.addEventListener("scroll",()=>{
+
+cards.forEach(card=>{
+
+const pos =
+card.getBoundingClientRect().top;
+
+if(pos < window.innerHeight-100){
+
+card.style.opacity="1";
+card.style.transform="translateY(0)";
+
+}
+
+});
+
+});
+
+</script>
+
+<div class="particle" style="left:10%"></div>
+<div class="particle" style="left:20%"></div>
+<div class="particle" style="left:35%"></div>
+<div class="particle" style="left:50%"></div>
+<div class="particle" style="left:65%"></div>
+<div class="particle" style="left:80%"></div>
+<div class="particle" style="left:90%"></div>
+
+</body>
+</html>
